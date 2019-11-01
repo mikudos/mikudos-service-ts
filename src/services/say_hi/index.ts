@@ -1,4 +1,4 @@
-import { Application } from '../../app';
+import Application from 'mikudos-node-app';
 
 import SayHi from './say_hi.func';
 import hooks from './say_hi.hooks';

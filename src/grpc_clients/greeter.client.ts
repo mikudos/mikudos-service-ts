@@ -1,6 +1,6 @@
 const caller: any = require('grpc-caller');
 import path from 'path';
-import { Application } from '../app';
+import Application from 'mikudos-node-app';
 
 export = function(app: Application): void {
     const file = path.resolve(

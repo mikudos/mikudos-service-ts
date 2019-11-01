@@ -1,5 +1,5 @@
 import examples from './examples.model';
-import { Application } from '../app';
+import Application from 'mikudos-node-app';
 
 export = function(app: Application): void {
     app.context.models.examples = examples(app);

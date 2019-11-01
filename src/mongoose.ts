@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { Application } from './app';
+import Application from 'mikudos-node-app';
 
 export = function(app: Application) {
     mongoose.connect(app.config.get('mongodb'), {
@@ -7,6 +7,6 @@ export = function(app: Application) {
         useNewUrlParser: true
     });
     mongoose.Promise = global.Promise;
-    app.mongooseClient = mongoose;
+    app.set('mongooseClient', mongoose);
     app.context.models = {};
 };

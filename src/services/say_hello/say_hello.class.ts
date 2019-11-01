@@ -1,4 +1,4 @@
-import { Application } from '../../app';
+import Application from 'mikudos-node-app';
 
 export default class SayHello {
     options: any;
