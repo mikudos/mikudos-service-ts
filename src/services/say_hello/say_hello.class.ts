@@ -1,6 +1,6 @@
 import { Application } from '../../app';
 
-export = class SayHello {
+export default class SayHello {
     options: any;
     constructor(options?: any) {
         this.options = options || {};
@@ -9,4 +9,4 @@ export = class SayHello {
         let app = ctx.app;
         ctx.response.res = { message: 'Hello '.concat(ctx.req.name) };
     }
-};
+}

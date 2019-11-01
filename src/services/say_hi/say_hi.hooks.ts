@@ -1,4 +1,4 @@
-export = {
+export default {
     before: [
         async function(ctx: any, next: Function) {
             // TransactionManager.beginTransaction(hook, skipPath)
