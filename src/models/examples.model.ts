@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
+import { Application } from '../app';
 
-export = function(app: any): mongoose.Model<any> {
+export = function(app: Application): mongoose.Model<any> {
     const mongooseClient = app.mongooseClient;
     const { Schema } = mongooseClient;
     const examples = new Schema(

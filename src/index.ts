@@ -1,10 +1,10 @@
+import { Application } from './app';
 import path from 'path';
-import Mali from 'mali';
-import config from 'config';
 import mongoose from './mongoose';
 import middleware from './middleware';
 import models from './models';
-import { Application } from './declarations';
+import grpc_clients from './grpc_clients';
+import services from './services';
 
 const PROTO_PATH = path.resolve(
     __dirname,
@@ -12,16 +12,15 @@ const PROTO_PATH = path.resolve(
 );
 
 function main(): void {
-    const app: Application = new Mali(PROTO_PATH);
-    app.config = config;
-    app.configure = <Function>function(middle: Function): void {
-        middle(app);
-    };
+    const app: Application = new Application(PROTO_PATH);
     app.configure(mongoose);
     app.configure(models);
+    // app.configure(broker)
+    app.configure(grpc_clients);
     app.configure(middleware);
-    app.start(`0.0.0.0:${config.get('port')}`);
-    console.log(`${config.get('app')} is started at Port: ${app.ports}`);
+    app.configure(services);
+    app.start(`0.0.0.0:${app.config.get('port')}`);
+    console.log(`${app.config.get('app')} is started at Port: ${app.ports}`);
 }
 
 main();

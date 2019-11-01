@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
-import { Application } from './declarations';
+import { Application } from './app';
 
-export = function(app: any) {
+export = function(app: Application) {
     mongoose.connect(app.config.get('mongodb'), {
         useUnifiedTopology: true,
         useNewUrlParser: true

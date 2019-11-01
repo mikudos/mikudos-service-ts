@@ -2,5 +2,5 @@ app: "mikudos-service-ts"
 consumer_group: "mikudos-service-ts"
 brokers:
   - "127.0.0.1:9092"
-mongodb: "mongodb://omManager:managerpwd@dds-2ze1e3965fa544d4-pub.mongodb.rds.aliyuncs.com:3717/puzzle"
+mongodb: "mongodb+srv://qiushanyu666:qiushanyu666@cluster0-exxbz.mongodb.net/yue?retryWrites=true"
 port: 50051
