@@ -4,16 +4,15 @@ import config from 'config';
 import mongoose from './mongoose';
 import middleware from './middleware';
 import models from './models';
+import { Application } from './declarations';
 
 const PROTO_PATH = path.resolve(
     __dirname,
     '../proto/helloworld/helloworld.proto'
 );
 
-interface App {}
-
 function main(): void {
-    const app: any = new Mali(PROTO_PATH);
+    const app: Application = new Mali(PROTO_PATH);
     app.config = config;
     app.configure = <Function>function(middle: Function): void {
         middle(app);

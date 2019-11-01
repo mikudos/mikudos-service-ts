@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import { Application } from './declarations';
 
 export = function(app: any) {
     mongoose.connect(app.config.get('mongodb'), {
