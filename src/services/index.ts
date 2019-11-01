@@ -1,4 +1,4 @@
-import Application from 'mikudos-node-app';
+import { Application } from 'mikudos-node-app';
 import sayHello from './say_hello';
 import sayHi from './say_hi';
 

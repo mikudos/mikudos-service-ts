@@ -2,7 +2,7 @@ const BROKER_ADDRESSES = process.env.BROKER_ADDRESSES
     ? String(process.env.BROKER_ADDRESSES).split(',')
     : null;
 import { Kafka, KafkaConfig } from 'kafkajs';
-import Application from 'mikudos-node-app';
+import { Application } from 'mikudos-node-app';
 
 const run = async (consumer: any) => {
     await consumer.subscribe({ topic: 'test-topic', fromBeginning: true });

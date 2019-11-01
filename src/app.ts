@@ -1,4 +1,4 @@
-import Application from 'mikudos-node-app';
+import { Application } from 'mikudos-node-app';
 import path from 'path';
 import mongoose from './mongoose';
 import middleware from './middleware';

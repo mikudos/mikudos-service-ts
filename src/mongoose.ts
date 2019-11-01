@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import Application from 'mikudos-node-app';
+import { Application } from 'mikudos-node-app';
 
 export = function(app: Application) {
     mongoose.connect(app.config.get('mongodb'), {
