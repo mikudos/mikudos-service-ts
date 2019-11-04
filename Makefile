@@ -14,16 +14,16 @@ server:
 docker:
 	yarn install
 	yarn run compile
-	docker build . -t asia.gcr.io/kubenetes-test-project-249803/frontend_server:0.0.2
+	docker build . -t asia.gcr.io/kubenetes-test-project-249803/mikudos_server_ts:0.0.2
 
 .PHONY:run-docker
 run-docker:
-	docker run -p 3030:3030 asia.gcr.io/kubenetes-test-project-249803/frontend_server:0.0.2
+	docker run -p 3030:3030 asia.gcr.io/kubenetes-test-project-249803/mikudos_server_ts:0.0.2
 
 .PHONY:push
 push:
-	# docker tag asia.gcr.io/kubenetes-test-project-249803/frontend_server:0.0.2 asia.gcr.io/kubenetes-test-project-249803/frontend_server:0.0.2
-	docker push asia.gcr.io/kubenetes-test-project-249803/frontend_server:0.0.2
+	# docker tag asia.gcr.io/kubenetes-test-project-249803/mikudos_server_ts:0.0.2 asia.gcr.io/kubenetes-test-project-249803/mikudos_server_ts:0.0.2
+	docker push asia.gcr.io/kubenetes-test-project-249803/mikudos_server_ts:0.0.2
 
 .PHONY:istio
 istio:
