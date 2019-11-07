@@ -1,13 +1,10 @@
 import { Application } from 'mikudos-node-app';
 
-import SayHello from './say_hello.class';
+import * as Funcs from './say_hello.funcs';
 import hooks from './say_hello.hooks';
 
+const MethodName = 'SayHello';
+
 export default function(app: Application) {
-    app.use(
-        'SayHello',
-        ...hooks.before,
-        new SayHello().SayHello,
-        ...hooks.after
-    );
+    app.use(MethodName, ...hooks.before, Funcs[MethodName], ...hooks.after);
 }
