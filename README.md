@@ -5,3 +5,5 @@
 # mikudos-service-ts
 
 mikudos-service-ts
+
+![version](https://img.shields.io/github/package-json/v/mikudos/mikudos-service-ts) ![license](https://img.shields.io/github/license/mikudos/mikudos-service-ts) ![typescript](https://img.shields.io/badge/-Typescript-blue)
