@@ -1,10 +1,17 @@
 import { Application } from 'mikudos-node-app';
 
-import * as Funcs from './say_hello.funcs';
+import ServiceClass from './say_hello.class';
 import hooks from './say_hello.hooks';
 
 const MethodName = 'SayHello';
 
 export default function(app: Application) {
-    app.use(MethodName, ...hooks.before, Funcs[MethodName], ...hooks.after);
+    const service = new ServiceClass({}, app);
+    app.set('services.game_puzzles', service);
+    app.use(
+        MethodName,
+        ...hooks.before,
+        async (ctx: any) => await service[MethodName](ctx),
+        ...hooks.after
+    );
 }
