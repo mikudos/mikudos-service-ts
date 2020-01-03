@@ -10,7 +10,7 @@ import { hook1, hook2 } from './greeter_service.hooks';
 @Service({ name: 'GreeterService' })
 @HookService('before', hook1)
 export default class {
-    constructor(public app: Application) {}
+    constructor() {}
 
     @Method('SayHello')
     @Method('SayHi')
