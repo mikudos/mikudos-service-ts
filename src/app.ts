@@ -15,7 +15,7 @@ const PROTO_PATH = path.resolve(
 const app: Application = new Application(PROTO_PATH);
 app.configure(mongoose);
 app.configure(models);
-app.configure(broker);
+// app.configure(broker);
 app.configure(grpc_clients);
 app.configure(middleware);
 app.configure(services);
