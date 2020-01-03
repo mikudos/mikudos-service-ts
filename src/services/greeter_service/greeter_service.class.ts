@@ -7,7 +7,7 @@ import {
 } from 'mikudos-node-app';
 import { hook1, hook2 } from './greeter_service.hooks';
 
-@Service({ name: 'GreeterService' })
+@Service({ name: 'GreeterService', serviceName: 'GreeterService' })
 @HookService('before', hook1)
 export default class {
     constructor() {}
