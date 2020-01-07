@@ -13,9 +13,12 @@ import { hook1, hook2 } from './greeter_service.hooks';
 @HookService('before', hook1)
 export default class {
     constructor(
-        @App() private app: Application,
+        @App() private app: Application, // The app is currently only supported param
         @Customer('test string') private test: any
-    ) {}
+    ) {
+        console.log('TCL: app', app);
+        console.log('TCL: test', test);
+    }
 
     @Method('SayHello')
     @Method('SayHi')
