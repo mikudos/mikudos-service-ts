@@ -3,14 +3,19 @@ import {
     Service,
     Method,
     HookMethod,
-    HookService
+    HookService,
+    App,
+    Customer
 } from 'mikudos-node-app';
 import { hook1, hook2 } from './greeter_service.hooks';
 
 @Service({ name: 'GreeterService', serviceName: 'GreeterService' })
 @HookService('before', hook1)
 export default class {
-    constructor() {}
+    constructor(
+        @App() private app: Application,
+        @Customer('test string') private test: any
+    ) {}
 
     @Method('SayHello')
     @Method('SayHi')
