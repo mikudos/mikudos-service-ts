@@ -7,7 +7,7 @@ import { Application } from 'mikudos-node-app';
 const run = async (consumer: any, topic: string) => {
     await consumer.subscribe({
         topic,
-        fromBeginning: true
+        fromBeginning: true,
     });
 
     await consumer.run({
@@ -17,23 +17,24 @@ const run = async (consumer: any, topic: string) => {
                 topic,
                 key: message.key.toString(),
                 offset: message.offset,
-                value: message.value.toString()
+                value: message.value.toString(),
             });
-        }
+        },
     });
 };
 
-export = function(app: Application) {
-    if (BROKER_ADDRESSES) app.config.kafka.brokers = BROKER_ADDRESSES;
+export = function (app: Application) {
+    if (BROKER_ADDRESSES)
+        app.set('kafka', { ...app.get('kafka'), brokers: BROKER_ADDRESSES });
     const kfConfig: KafkaConfig = {
-        clientId: app.config.kafka.clientId,
-        brokers: app.config.kafka.brokers
+        clientId: app.get('kafka').clientId,
+        brokers: app.get('kafka').brokers,
     };
     const kafka = new Kafka(kfConfig);
     const producer = kafka.producer();
     const ProducerConnectPromise = producer.connect();
     const consumer = kafka.consumer({
-        groupId: app.config.kafka.consumer_group
+        groupId: app.get('kafka').consumer_group,
     });
     const ConsumerConnectPromise = consumer.connect();
     ProducerConnectPromise.then(() => {
@@ -41,6 +42,6 @@ export = function(app: Application) {
     });
     ConsumerConnectPromise.then(() => {
         app.context.consumer = consumer;
-        run(consumer, app.config.kafka.topic);
+        run(consumer, app.get('kafka').topic);
     });
 };
